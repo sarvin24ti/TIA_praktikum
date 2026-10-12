@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.sarvin_tia.databinding.ActivityMainBinding
+import com.example.sarvin_tia.p5.LimaActivity
+import com.example.sarvin_tia.pertemuan6.EnamActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -24,32 +27,59 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         val user = intent.getStringExtra("username")
         val pass = intent.getStringExtra("password")
         binding.textView2.text = "Halo, $user"
+
         binding.textView3.text = "Sandi: $pass"
 
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Apakah Anda yakin ingin keluar?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+                    dialog.dismiss()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+
+                }
+                .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
+                .show()
+
+        }
         binding.snackbar.setOnClickListener {
             val intent = Intent(this, DetailActivity::class.java)
             startActivity(intent)
-        }
 
-        binding.alert.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi LogOut")
-                .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
-                .setNegativeButton("Tidak") { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .setPositiveButton("Ya") { dialog, _ ->
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                    Toast.makeText(this, "Berhasil LogOut", Toast.LENGTH_SHORT).show()
-                }
-                .setCancelable(false)
-                .show()
         }
+        binding.btnToLima.setOnClickListener {
+            val intent = Intent(this@MainActivity, LimaActivity::class.java)
+            startActivity(intent)
+        }
+        binding.pertemuan6.setOnClickListener {
+            val intent = Intent(this@MainActivity, EnamActivity::class.java)
+            startActivity(intent)
+        }
+//        binding.btnLogout.setOnClickListener {
+//            MaterialAlertDialogBuilder(this)
+//                .setTitle("Konfirmasi LogOut")
+//                .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
+//                .setNegativeButton("Tidak") { dialog, _ ->
+//                    dialog.dismiss()
+//                }
+//                .setPositiveButton("Ya") { dialog, _ ->
+//                    val intent = Intent(this, LoginActivity::class.java)
+//                    startActivity(intent)
+//                    finish()
+//                    Toast.makeText(this, "Berhasil LogOut", Toast.LENGTH_SHORT).show()
+//                }
+//                .setCancelable(false)
+//                .show()
+//        }
     }
 }

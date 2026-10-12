@@ -8,6 +8,7 @@
     android:background="#F4F6F0"
     tools:context=".MainActivity">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/headerCard"
         android:layout_width="match_parent"
@@ -60,6 +61,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -69,7 +71,8 @@
         app:cardElevation="6dp"
         app:layout_constraintTop_toBottomOf="@+id/headerCard"
         app:strokeColor="#4CAF50"
-        app:strokeWidth="1dp">
+        app:strokeWidth="1dp"
+        tools:layout_editor_absoluteX="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,14 +90,44 @@
                 app:cornerRadius="12dp" />
 
             <Button
-                android:id="@+id/alert"
+                android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#D32F2F"
-                android:text="LogOut"
-                android:textSize="16sp"
-                app:cornerRadius="12dp" />
+
+                android:text="Logout" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/btnToLima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pertemuan 5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <Button
+        android:id="@+id/tolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToLima" />
+
+    <Button
+        android:id="@+id/pertemuan6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pertemuan6"
+        app:layout_constraintBottom_toTopOf="@+id/btnToLima"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
