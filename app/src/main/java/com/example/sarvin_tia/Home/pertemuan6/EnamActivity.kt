@@ -1,4 +1,4 @@
-package com.example.sarvin_tia.pertemuan6
+package com.example.sarvin_tia.Home.pertemuan6
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,7 +11,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.sarvin_tia.R
 import com.example.sarvin_tia.databinding.ActivityEnamBinding
-import com.example.sarvin_tia.databinding.ActivityLoginBinding
 
 class EnamActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEnamBinding

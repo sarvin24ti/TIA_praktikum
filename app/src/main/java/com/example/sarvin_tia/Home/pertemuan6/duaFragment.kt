@@ -1,4 +1,4 @@
-package com.example.sarvin_tia.pertemuan6
+package com.example.sarvin_tia.Home.pertemuan6
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,16 @@ import android.view.ViewGroup
 import com.example.sarvin_tia.R
 
 
-class satuFragment : Fragment() {
+class duaFragment : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_satu, container, false)
+        return inflater.inflate(R.layout.fragment_dua, container, false)
     }
+
 
 }

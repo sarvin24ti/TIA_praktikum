@@ -1,4 +1,4 @@
-package com.example.sarvin_tia.p5
+package com.example.sarvin_tia.Home.p5
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
